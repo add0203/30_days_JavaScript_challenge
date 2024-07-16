@@ -66,6 +66,7 @@ for (let k = 1; k <= 10; k++) {
   if (k == 5) continue;
   process.stdout.write(`${k},`);
 }
+console.log();
 console.log("task 8 finished");
 
 // Task 6: Write a program to calculate the factorial of a number using a do. ..while loop.
