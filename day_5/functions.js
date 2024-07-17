@@ -93,3 +93,9 @@ function addTwo(n) {
 }
 
 console.log(fun2(doubleValue, addTwo, 4));
+
+//Immediately Invoked Function Expression
+
+(function (name, age) {
+  console.log(`${name} has age ${age}`);
+})("anand", 5);
