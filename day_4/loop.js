@@ -59,11 +59,22 @@ do {
 } while (num < 6);
 
 // Activity 5: Loop Control Statements
-// • Task 8: Write a program to print numbers from 1 to 10, but skip the number 5 using the continue statement.
+// Task 8: Write a program to print numbers from 1 to 10, but skip the number 5 using the continue statement.
 console.log();
 console.log("task 8");
 for (let k = 1; k <= 10; k++) {
   if (k == 5) continue;
+  process.stdout.write(`${k},`);
+}
+console.log();
+console.log("task 8 finished");
+
+// Task 9: Write a program to print numbers from 1 to 10, but stop the loop when the number is 7 using the break statement.
+
+console.log();
+console.log("task 8");
+for (let k = 1; k <= 10; k++) {
+  if (k == 7) break;
   process.stdout.write(`${k},`);
 }
 console.log();
@@ -115,5 +126,3 @@ rl.question("Enter number: ", (answer) => {
   console.log(`factorial of ${userInput} is ${calculateFactorial(userInput)}`);
   rl.close();
 });
-
-// • Task 9: Write a program to print numbers from 1 to 10, but stop the loop when the number is 7 using the break statement.
