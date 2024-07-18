@@ -64,16 +64,25 @@ arr.forEach((element) => {
 });
 // Activity 5: Multi-dimensional Arrays
 // • Task 12: Create a two-dimensional array (matrix) and log the entire array to the console.
+// const row = 4  , col = 5;
 // const twoDimArray = Array.from(Array(rows), () => new Array(columns).fill(0));
+console.log();
 const twoDimArray2 = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
 ];
-for (let i = 0; i < twoDimArray.length; i++) {
-  for (let j = 0; j < twoDimArray[0].length; j++) {
-    arr[i][j];
+for (let i = 0; i < twoDimArray2.length; i++) {
+  for (let j = 0; j < twoDimArray2[0].length; j++) {
+    process.stdout.write(`${twoDimArray2[i][j]},`);
   }
+  console.log();
 }
 
 // • Task 13: Access and log a specific element from the two-dimensional array.
+for (let i = 0; i < twoDimArray2.length; i++) {
+  for (let j = 0; j < twoDimArray2[0].length; j++) {
+    if (twoDimArray2[i][j] == 3) process.stdout.write(`${twoDimArray2[i][j]},`);
+  }
+  console.log();
+}
