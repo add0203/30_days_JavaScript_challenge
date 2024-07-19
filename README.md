@@ -3,6 +3,15 @@
     End Date: August 11, 2024
     Goal: Solve 1 to 2 LeetCode questions daily, focusing on current trends.
 
+## To Do
+
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
+
+**Optional:** Add a short description for each task after the checkbox.
+
+
 
 🎯 I'm thrilled to announce that I've started a 30-day JavaScript challenge to deepen my understanding of JavaScript!
 
