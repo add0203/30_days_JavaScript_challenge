@@ -80,3 +80,5 @@ const person = {
   [propName]: "blue",
 };
 console.log(person);
+
+//activity
