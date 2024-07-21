@@ -67,8 +67,27 @@ function removeLastChild() {
 }
 // Activity 4: Modifying Attributes and Classes
 // • Task 7: Select an HTML element and change one of its attributes (e.g., src of an img tag).
-// • Task 8: Add and remove a CSS class to/from an HTML element.
 
+function changeImage() {
+  const image = document.getElementById("myImage");
+  image.setAttribute("src", "new_image.jpg"); // Change the src attribute
+  image.setAttribute("alt", "New Image"); // Optionally change the alt attribute
+}
+// • Task 8: Add and remove a CSS class to/from an HTML element.
+function toggleHighlight() {
+  const textElement = document.getElementById("myText");
+  textElement.classList.toggle("highlight");
+}
+
+function addHighlight() {
+  const textElement = document.getElementById("myText");
+  textElement.classList.add("highlight");
+}
+
+function removeHighlight() {
+  const textElement = document.getElementById("myText");
+  textElement.classList.remove("highlight");
+}
 // Activity 5: Event Handling
 // • Task 9: Add a click event listener to a button that changes the text content of a paragraph.
 // • Task IO: Add a mouseover event listener to an element that changes its border color.
