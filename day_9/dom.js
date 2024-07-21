@@ -46,6 +46,7 @@ const createList = () => {
   list.style.margin = "10px";
   list.style.color = "white";
   list.style.fontWeight = "600";
+  list.setAttribute;
   list.appendChild(listItem1);
   list.appendChild(listItem2);
   list.appendChild(listItem3);
@@ -54,7 +55,16 @@ const createList = () => {
 };
 // Activity 3: Removing Elements
 // • Task 5: Select an HTML element and remove it from the DOM.
+function removeElement() {
+  const element = document.getElementById("removeMe");
+  element.remove();
+}
 // • Task 6: Remove the last child of a specific HTML element.
+
+function removeLastChild() {
+  const parent = document.getElementById("parent");
+  parent.removeChild(parent.lastChild);
+}
 // Activity 4: Modifying Attributes and Classes
 // • Task 7: Select an HTML element and change one of its attributes (e.g., src of an img tag).
 // • Task 8: Add and remove a CSS class to/from an HTML element.
