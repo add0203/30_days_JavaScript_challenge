@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Body Styles */
+      .main-container {
+        font-family: "Open Sans", sans-serif;
+        /* display: flex; */
+
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8eded; /* Light Pink background */
+        padding: 20px;
+        /* text-align: center; */
+      }
+
+      #text-box {
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #ffffff; /* White background for the text box */
+        border: 1px solid #ff8225; /* Bright Orange border */
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .button-54 {
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        letter-spacing: 2px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #f8eded; /* Light Pink text */
+        cursor: pointer;
+        border: 3px solid #ff8225; /* Bright Orange border */
+        padding: 0.25em 0.5em;
+        background-color: #ff8225; /* Bright Orange background */
+        box-shadow: 1px 1px 0px 0px #b43f3f, 2px 2px 0px 0px #b43f3f,
+          3px 3px 0px 0px #b43f3f, 4px 4px 0px 0px #b43f3f,
+          5px 5px 0px 0px #b43f3f; /* Dark Red shadows */
+        position: relative;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+      }
+
+      .button-54:active {
+        box-shadow: 0px 0px 0px 0px;
+        top: 5px;
+        left: 5px;
+        background-color: #3b45; /* Deep Blue when active */
+      }
+
+      .highlight {
+        font-weight: 600;
+      }
+
+      @media (min-width: 768px) {
+        .button-54 {
+          padding: 0.25em 0.75em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <p id="myText">This is a paragraph.</p>
+      <button class="button-54">Hover on me to add the border to he DIV</button>
+      <br />
+      <br />
+    </div>
+    <script src="event-handling.js"></script>
+  </body>
+</html>
