@@ -62,6 +62,10 @@
         background-color: #3b45; /* Deep Blue when active */
       }
 
+      .highlight{
+        font-weight: 600;
+      }
+
       @media (min-width: 768px) {
         .button-54 {
           padding: 0.25em 0.75em;
@@ -88,25 +92,49 @@
       <button class="button-54" onclick="createList()">
         View the list
       </button>
-        <div id="parent">
-    <p>First child</p>
-    <p>Second child</p>
-    <p>Last child</p>
-  </div>    
-<button class="button-54" onclick="removeLastChild()">Remove Last Child</button>
+        
+      
+    <br>
 
-  <div id="removeMe">This is the element to be removed.</div>
-  <button class="button-54" onclick="removeElement()">Remove Element</button>
-
-   <img id="myImage" src="old_image.jpg" alt="Old Image">
-  <button onclick="changeImage()">Change Image</button>
-
-   <p id="myText">This is a paragraph.</p>
-  <button onclick="toggleHighlight()">Toggle Highlight</button>
-
- <p id="myText">This is a paragraph.</p>
-  <button onclick="addHighlight()">Add Highlight</button>
-  <button onclick="removeHighlight()">Remove Highlight</button>
+    <br>
+    <!-- remove this Element -->
+    <div id="removeMe">This is the element to be removed.</div>   
+    <button class="button-54" onclick="removeElement()">Remove Element</button>
+    <br>
+    <br>
+    <div id="parent">
+        <p>First child</p>
+        <p>Second child</p>
+        <p>Last child</p>
+    </div>    
+    <button class="button-54" onclick="removeLastChild()">Remove Last Child</button>
+    <br>
+    <br>
+    <img id="myImage" src="old_image.jpg" alt="Old Image">
+    <button  class="button-54" onclick="changeImage()">Change Image</button>
+    <br>
+    <br>
+    <p id="myText">This is a paragraph.</p>
+    <button  class="button-54" onclick="toggleHighlight()">Toggle Highlight</button>
+    <br>
+    <br>
+    
+    <p id="myText2">This is a paragraph.</p>
+    <button  class="button-54" onclick="addHighlight()">Add Highlight</button>
+    <button  class="button-54" onclick="removeHighlight()">Remove Highlight</button>
+    <br>
+    <br>
+     <p id="change-text">i will change when buttin is click</p>
+    <button  class="button-54" onclick="changeContent()">click to change the content of the paragraph</button>
+    <br>
+    <br>
+    <div id="change-my-border">
+        I AM THE DIV
+    </div>
+    <br>
+    <button  class="button-54" onmouseover="mouseOverEvent()">Hover on me to add the border to he DIV</button>
+    <br>
+    <br>
     </div>
     <script src="dom.js"></script>
   </body>

@@ -80,14 +80,22 @@ function toggleHighlight() {
 }
 
 function addHighlight() {
-  const textElement = document.getElementById("myText");
+  const textElement = document.getElementById("myText2");
   textElement.classList.add("highlight");
 }
 
 function removeHighlight() {
-  const textElement = document.getElementById("myText");
+  const textElement = document.getElementById("myText2");
   textElement.classList.remove("highlight");
 }
 // Activity 5: Event Handling
 // • Task 9: Add a click event listener to a button that changes the text content of a paragraph.
+function changeContent() {
+  const changeText = document.getElementById("change-text");
+  changeText.innerText = "here i am changed";
+}
 // • Task IO: Add a mouseover event listener to an element that changes its border color.
+function mouseOverEvent() {
+  const mouseoverDiv = document.getElementById("change-my-border");
+  mouseoverDiv.style.border = "1px solid black";
+}
