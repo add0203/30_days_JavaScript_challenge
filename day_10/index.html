@@ -66,6 +66,15 @@
         font-weight: 600;
       }
 
+      .visible {
+        display: none;
+      }
+
+      div {
+        padding: 10px;
+        margin: 10px;
+      }
+
       @media (min-width: 768px) {
         .button-54 {
           padding: 0.25em 0.75em;
@@ -75,8 +84,50 @@
   </head>
   <body>
     <div class="main-container">
-      <p id="myText">This is a paragraph.</p>
-      <button class="button-54">Hover on me to add the border to he DIV</button>
+      <div><p id="para">This is a paragraph.</p></div>
+      <button class="button-54" onclick="changesPara()">
+        Hover on me to add the border to he DIV
+      </button>
+      <br />
+      <br />
+      <img
+        id="image"
+        src="https://picsum.photos/200"
+        alt="old_image.png"
+        onclick="imageToggleClick()"
+      />
+      <br />
+      <br />
+      <div
+        id="background-color-change"
+        onmouseover="mouseoverEvent()"
+        onmouseout="mouseoutEvent()"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum facilis
+        dolor tempore aspernatur quidem voluptatum eius ipsa aperiam cupiditate
+        natus qui recusandae quam, non dignissimos eligendi suscipit facere
+        laborum saepe.
+      </div>
+      <br />
+      <br />
+      <input type="text" id="input-field" />
+      <br />
+      <br />
+      <input type="text" id="input-field-2" />
+      <div>
+        <p id="para-1"></p>
+      </div>
+      <br />
+      <br />
+      <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
       <br />
       <br />
     </div>
