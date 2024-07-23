@@ -56,6 +56,19 @@ formElement.addEventListener("submit", (e) => {
 });
 // };
 // • Task 8: Add a change event listener to a select dropdown that displays the selected value in a paragraph.
+const selectOption = document.getElementById("mySelect");
+const displayRes = document.getElementById("selectedValue");
+
+selectOption.addEventListener("change", (e) => {
+  displayRes.innerText = e.target.value;
+});
 // Activity 5: Event Delegation
 // • Task 9: Add a click event listener to a list that logs the text content of the clicked list item using event delegation.
+const list = document.getElementById("list");
+list.addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    console.log(e.target.textContent);
+  }
+});
+
 // • Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements.
