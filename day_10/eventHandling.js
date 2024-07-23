@@ -72,3 +72,11 @@ list.addEventListener("click", (e) => {
 });
 
 // • Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements.
+const list2 = document.getElementById("list-2");
+const addbutton = document.getElementById("button");
+const childContainer = document.getElementById("child-container");
+addbutton.addEventListener("click", () => {
+  const newItem = document.createElement("li");
+  newItem.textContent = `Item ${childContainer.children.length + 1}`;
+  childContainer.appendChild(newItem);
+});
