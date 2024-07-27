@@ -1,4 +1,4 @@
-//constants
+//constants and variable
 
 export const PIvalue = 3.14;
 
