@@ -1,15 +1,6 @@
 {
-  "name": "modules_day_13",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "iodash": "^0.0.1-security"
+    "axios": "^1.7.2",
+    "lodash": "^4.17.21"
   }
 }

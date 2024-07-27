@@ -49,12 +49,45 @@ console.log("pi value : ", PIvalue);
 console.log("methode used to print PI value : " + PIvalueDisplay(PIvalue));
 
 // Activity 4: Using Third-Party Modules
-// • Task 6: Install a third-party module (e.g., Iodash ) using npm. Import and use a function from this module in a script.
-import _ from "iodash";
+
+import _ from "lodash";
 
 let arr = [1, 2, 3, 4, 5, 6];
 
-console.log(chunk(arr, 3));
+console.log(_.chunk(arr, 3)); // Outputs: [[1, 2, 3], [4, 5, 6]]
+console.log(_.compact([0, 1, false, 2, "", 3])); // [1, 2, 3]
+console.log(_.concat(arr, 7, 8)); // [1, 2, 3, 4, 5, 6, 7, 8]
+
+const object = { a: 1, b: 2 };
+
+console.log(_.assign(object, { c: 3 })); // { a: 1, b: 2, c: 3 }
+console.log(_.get(object, "a")); // 1
+console.log(_.set(object, "d", 4)); // { a: 1, b: 2, c: 3, d: 4 }
+
+console.log(_.camelCase("Foo Bar")); // 'fooBar'
+console.log(_.capitalize("hello world")); // 'Hello world'
+console.log(_.kebabCase("Hello World")); // 'hello-world'
+
+const users = [
+  { user: "barney", age: 36, active: true },
+  { user: "fred", age: 40, active: false },
+];
+
+console.log(_.filter(users, (o) => o.active)); // [{ 'user': 'barney', 'age': 36, 'active': true }]
+console.log(_.map(users, "user")); // ['barney', 'fred']
+console.log(_.reduce([1, 2, 3], (sum, n) => sum + n, 0)); // 6
 // • Task 7:  Install a third-party module (e.g., axios ) using npm. Import and use this module to make a network request in a script.
+
+import axios from "axios";
+
+axios
+  .get("https://jsonplaceholder.typicode.com/posts/1")
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
+
 // Activity 5: Module Bundling (Optional)
 // • Task 8: Use a module bundler like Webpack or Parcel to bundle multiple JavaScript files into a single file. Write a script to demonstrate the bundling process.
