@@ -156,13 +156,101 @@ student1.count();
 // Activity 4:
 // Getters and Setters
 // • Task 7: Add a getter method to the Person class to return the full name (assume a firstName and lastName property).
-//            Create an instance and log the full name using the getter.
-class person5 {
-  constructor() {}
+//           Create an instance and log the full name using the getter.
+class Person5 {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  getter() {
+    console.log(`firstName: ${this.firstName} & lastName : ${this.lastName}`);
+  }
 }
-// . Task 8: Add a setter method to the Person class to update the name properties ( firstName and lastName ). Update the name using the setter and log the updated full name.
+
+let per1 = new Person5("anand", "dwivedi");
+per1.getter();
+// . Task 8: Add a setter method to the Person class to update the name properties ( firstName and lastName ).
+//           Update the name using the setter and log the updated full name.
+class Person6 {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  setFirstName(firstName) {
+    this.firstName = firstName;
+  }
+
+  setLastName(lastName) {
+    this.lastName = lastName;
+  }
+
+  getter() {
+    console.log(`firstName: ${this.firstName} & lastName : ${this.lastName}`);
+  }
+}
+
+let per6 = new Person6("anjali", "jaiswal");
+per6.getter();
+per6.setLastName("dwivedi");
+per6.getter();
+
 // Activity 5:
 // Private Fields (Optional)
+class Person7 {
+  // Private fields
+  #name;
+  #age;
+
+  constructor(name, age) {
+    this.#name = name;
+    this.#age = age;
+  }
+
+  getName() {
+    return this.#name;
+  }
+
+  getAge() {
+    return this.#age;
+  }
+}
+
+let Per7 = new Person7("anand", 23);
+console.log(Per7.getAge());
+console.log(Per7.getName());
+
 // • Task 9:
 // Define a class Account with private fields for balance and a method to deposit and withdraw money. Ensure that the balance can only be updated through these methods.
+
+class Account {
+  //private fields
+  #balance;
+
+  constructor(balance) {
+    this.#balance = balance;
+  }
+
+  deposit(val) {
+    this.#balance = this.#balance + val;
+  }
+
+  withdraw(val) {
+    this.#balance = this.#balance - val;
+  }
+
+  checkBalance() {
+    return this.#balance;
+  }
+}
+
+let acc1 = new Account(20000);
+console.log(`current balance : ${acc1.checkBalance()}`);
+acc1.deposit(300);
+acc1.withdraw(400);
+console.log(`current balance : ${acc1.checkBalance()}`);
 // • Task 10: Create an instance of the Account class and test the deposit and withdraw methods, logging the balance after each operation.
+acc1.deposit(40000);
+acc1.withdraw(10000);
+console.log(`current balance : ${acc1.checkBalance()}`);
