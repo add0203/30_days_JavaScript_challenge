@@ -1,6 +1,47 @@
 // Day 15: Closures
 // Tasks/Activities:
 // Activity 1: Understanding Closures
+// Closures are a fundamental concept in JavaScript that enable powerful and flexible programming patterns.
+// A closure is a function that has access to its own scope, the scope of the outer function, and the global scope.
+// This access persists even after the outer function has finished executing.
+
+function outerFunction() {
+  let outerVariable = "I am outside!";
+
+  function innerFunction() {
+    console.log(outerVariable); // Can access outerVariable
+  }
+
+  return innerFunction;
+}
+
+const closure = outerFunction();
+closure(); // Output: I am outside!
+
+function createCounter() {
+  let count = 0;
+
+  return {
+    increment: function () {
+      count++;
+      return count;
+    },
+    decrement: function () {
+      count--;
+      return count;
+    },
+    getCount: function () {
+      return count;
+    },
+  };
+}
+
+const counter = createCounter();
+console.log(counter.increment()); // Output: 1
+console.log(counter.increment()); // Output: 2
+console.log(counter.decrement()); // Output: 1
+console.log(counter.getCount()); // Output: 1
+
 // • Task 1: Write a function that returns another function, where the inner function accesses a variable from the outer function's scope. Call the inner function and log the result.
 // • Task 2: Create a closure that maintains a private counter. Implement functions to increment and get the current value of the counter.
 // Activity 2: Practical Closures
