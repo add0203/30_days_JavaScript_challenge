@@ -114,12 +114,52 @@ emp1.work(); // Output: John is working as a Developer.
 console.log(emp1.getDescription()); // Output: John is 35 years old. They work as a Developer and earn $60000.
 
 // Activity 3: Static Methods and Properties
-// . Task 5: Add a static method to the Person class that returns a generic greeting message. Call this static method without creating an instance of the class and log the message.
-// . Task 6: Add a static property to the Student class to keep track of the number of students created. Increment this property in the constructor and log the total number of students.
+// . Task 5: Add a static method to the Person class that returns a generic greeting message.
+//           Call this static method without creating an instance of the class and log the message.
+
+class person4 {
+  construtor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`${this.name} has age ${this.age}`);
+  }
+
+  static genricGreeting() {
+    console.log("hello person");
+  }
+}
+
+//without creating the instance of the class
+person4.genricGreeting();
+
+// . Task 6: Add a static property to the Student class to keep track of the number of students created.
+//           Increment this property in the constructor and log the total number of students.
+
+class student1 extends person4 {
+  static studentCount = 0;
+  constructor(name, age, stuId) {
+    super(name, age);
+    this.stuId = stuId;
+    student1.studentCount++;
+  }
+  static count() {
+    console.log(`number of student : ${this.studentCount}`);
+  }
+}
+
+let s1 = new student1("anand", 23, "s1a");
+let s2 = new student1("anand", 23, "s2a");
+student1.count();
 // Activity 4:
 // Getters and Setters
-// • Task 7:
-// Add a getter method to the Person class to return the full name (assume a firstName and lastName property). Create an instance and log the full name using the getter.
+// • Task 7: Add a getter method to the Person class to return the full name (assume a firstName and lastName property).
+//            Create an instance and log the full name using the getter.
+class person5 {
+  constructor() {}
+}
 // . Task 8: Add a setter method to the Person class to update the name properties ( firstName and lastName ). Update the name using the setter and log the updated full name.
 // Activity 5:
 // Private Fields (Optional)
