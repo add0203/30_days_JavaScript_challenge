@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 1em;
+        text-align: center;
+      }
+
+      main {
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #login-section,
+      #post-form-section {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 2em;
+        background-color: #fff;
+        padding: 1em;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #feed-section {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .post {
+        background-color: #fff;
+        padding: 1em;
+        margin-bottom: 1em;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .post:hover {
+        transform: scale(1.02);
+      }
+
+      .post img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .post-details {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5em;
+      }
+
+      .post-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5em;
+      }
+
+      .post-actions button {
+        padding: 0.5em;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .post-actions button:hover {
+        background-color: #555;
+      }
+
+      .comments {
+        margin-top: 1em;
+      }
+
+      .comments textarea {
+        width: 100%;
+        padding: 0.5em;
+        margin-bottom: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+      }
+
+      .post[data-user="current-user"] {
+        border: 2px solid #007bff;
+        background-color: #e9f7ff;
+      }
+
+      #login-form,
+      #post-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #login-form label,
+      #login-form input,
+      #login-form button,
+      #post-form label,
+      #post-form textarea,
+      #post-form input,
+      #post-form button {
+        margin-bottom: 1em;
+      }
+
+      #login-form input,
+      #post-form textarea,
+      #post-form input {
+        padding: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      #login-form button,
+      #post-form button {
+        padding: 0.5em;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      #login-form button:hover,
+      #post-form button:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Social Media Dashboard</h1>
+    </header>
+    <main>
+      <section id="login-section">
+        <h2>Login</h2>
+        <form id="login-form">
+          <label for="username">Username:</label>
+          <input type="text" id="username" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" required />
+          <button type="submit">Login</button>
+        </form>
+      </section>
+
+      <section id="post-form-section" style="display: none">
+        <h2>Create a New Post</h2>
+        <form id="post-form">
+          <label for="post-text">Post:</label>
+          <textarea id="post-text" required></textarea>
+          <label for="post-image">Image URL (optional):</label>
+          <input type="url" id="post-image" />
+          <button type="submit">Post</button>
+        </form>
+      </section>
+
+      <section id="feed-section" style="display: none">
+        <!-- Post feed will be displayed here -->
+      </section>
+    </main>
+    <script>
+      const posts = [];
+
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (username && password) {
+            sessionStorage.setItem("loggedInUser", username);
+            document.getElementById("login-section").style.display = "none";
+            document.getElementById("post-form-section").style.display =
+              "block";
+            document.getElementById("feed-section").style.display = "block";
+          } else {
+            alert("Please enter valid credentials.");
+          }
+        });
+
+      document
+        .getElementById("post-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const text = document.getElementById("post-text").value;
+          const imageUrl = document.getElementById("post-image").value;
+          const username = sessionStorage.getItem("loggedInUser");
+          const timestamp = new Date().toLocaleString();
+
+          const newPost = {
+            text,
+            imageUrl,
+            username,
+            timestamp,
+            likes: 0,
+            comments: [],
+          };
+          posts.push(newPost);
+
+          document.getElementById("post-text").value = "";
+          document.getElementById("post-image").value = "";
+
+          displayPosts();
+        });
+
+      function displayPosts() {
+        const feedSection = document.getElementById("feed-section");
+        feedSection.innerHTML = "";
+
+        posts.forEach((post, index) => {
+          const postElement = document.createElement("div");
+          postElement.className = "post";
+          postElement.setAttribute(
+            "data-user",
+            post.username === sessionStorage.getItem("loggedInUser")
+              ? "current-user"
+              : ""
+          );
+          postElement.innerHTML = `
+                    <div class="post-details">
+                        <span>${post.username}</span>
+                        <span>${post.timestamp}</span>
+                    </div>
+                    <p>${post.text}</p>
+                    ${
+                      post.imageUrl
+                        ? `<img src="${post.imageUrl}" alt="Post Image">`
+                        : ""
+                    }
+                    <div class="post-actions">
+                        <button onclick="likePost(${index})">Like (${
+            post.likes
+          })</button>
+                        <button onclick="toggleComments(${index})">Comment (${
+            post.comments.length
+          })</button>
+                    </div>
+                    <div class="comments" id="comments-${index}" style="display:none;">
+                        <textarea id="comment-text-${index}" placeholder="Add a comment"></textarea>
+                        <button onclick="addComment(${index})">Post Comment</button>
+                        <div id="comment-list-${index}">
+                            ${post.comments
+                              .map((comment) => `<p>${comment}</p>`)
+                              .join("")}
+                        </div>
+                    </div>
+                `;
+          feedSection.appendChild(postElement);
+        });
+      }
+
+      function likePost(index) {
+        posts[index].likes++;
+        displayPosts();
+      }
+
+      function toggleComments(index) {
+        const commentsSection = document.getElementById(`comments-${index}`);
+        commentsSection.style.display =
+          commentsSection.style.display === "none" ? "block" : "none";
+      }
+
+      function addComment(index) {
+        const commentText = document.getElementById(
+          `comment-text-${index}`
+        ).value;
+        if (commentText) {
+          posts[index].comments.push(commentText);
+          document.getElementById(`comment-text-${index}`).value = "";
+          displayPosts();
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
+}
+
+.post-actions button {
+  padding: 0.5em;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.post-actions button:hover {
+  background-color: #555;
+}
+
+.comments {
+  margin-top: 1em;
+}
+
+.comments textarea {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}

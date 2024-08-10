@@ -1,0 +1,29 @@
+#login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#login-form label,
+#login-form input,
+#login-form button {
+  margin-bottom: 1em;
+}
+
+#login-form input {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#login-form button {
+  padding: 0.5em;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#login-form button:hover {
+  background-color: #555;
+}
